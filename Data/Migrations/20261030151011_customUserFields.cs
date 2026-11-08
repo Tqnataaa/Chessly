@@ -17,15 +17,16 @@ namespace Chessly.Web.Data.Migrations
                 nullable: false,
                 defaultValue: "");
 
+
             migrationBuilder.AddColumn<int>(
-                name: "Draws",
+                name: "Elo",
                 table: "AspNetUsers",
                 type: "int",
                 nullable: false,
                 defaultValue: 0);
 
             migrationBuilder.AddColumn<int>(
-                name: "Elo",
+                name: "Wins",
                 table: "AspNetUsers",
                 type: "int",
                 nullable: false,
@@ -38,12 +39,14 @@ namespace Chessly.Web.Data.Migrations
                 nullable: false,
                 defaultValue: 0);
 
+
             migrationBuilder.AddColumn<int>(
-                name: "Wins",
+                name: "Draws",
                 table: "AspNetUsers",
                 type: "int",
                 nullable: false,
                 defaultValue: 0);
+
         }
 
         /// <inheritdoc />
@@ -54,11 +57,11 @@ namespace Chessly.Web.Data.Migrations
                 table: "AspNetUsers");
 
             migrationBuilder.DropColumn(
-                name: "Draws",
+                name: "Elo",
                 table: "AspNetUsers");
 
             migrationBuilder.DropColumn(
-                name: "Elo",
+                name: "Wins",
                 table: "AspNetUsers");
 
             migrationBuilder.DropColumn(
@@ -66,8 +69,9 @@ namespace Chessly.Web.Data.Migrations
                 table: "AspNetUsers");
 
             migrationBuilder.DropColumn(
-                name: "Wins",
+                name: "Draws",
                 table: "AspNetUsers");
+
         }
     }
 }
