@@ -23,7 +23,7 @@ namespace Chessly.Web.Data
                 .WithMany(b => b.Matches)
                 .HasForeignKey(gh => gh.BotId)
                 .OnDelete(DeleteBehavior.Restrict);
-
+       
             builder.Entity<Bot>().HasData(
                 new Bot { Id = 1, Name = "EasyBot", Difficulty = "Easy", Elo = 600, Description = "An easy bot for beginners.", ImageUrl = "/images/bots/easybot.png" },
                 new Bot { Id = 2, Name = "MediumBot", Difficulty = "Medium", Elo = 1200, Description = "A medium difficulty bot.", ImageUrl = "/images/bots/mediumbot.png" },

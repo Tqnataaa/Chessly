@@ -15,10 +15,16 @@ namespace Chessly.Web.Models
         public ApplicationUser? User { get; set; }
 
         [Required]
+        public string UserName { get; set; } = string.Empty;
+
+        [Required]
         public int BotId { get; set; }
 
         [ForeignKey(nameof(BotId))]
         public Bot? Bot { get; set; }
+
+        [Required]
+        public string BotName { get; set; } = string.Empty;
 
         [Required]
         [MaxLength(10)]

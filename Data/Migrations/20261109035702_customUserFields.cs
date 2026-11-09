@@ -11,22 +11,28 @@ namespace Chessly.Web.Data.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
+                name: "ProfileImageUrl",
+                table: "AspNetUsers",
+                type: "nvarchar(max)",
+                nullable: false,
+                defaultValue: "");
+
+            migrationBuilder.AddColumn<string>(
                 name: "Country",
                 table: "AspNetUsers",
                 type: "nvarchar(max)",
                 nullable: false,
                 defaultValue: "");
 
+            migrationBuilder.AddColumn<int>(
+               name: "Wins",
+               table: "AspNetUsers",
+               type: "int",
+               nullable: false,
+               defaultValue: 0);
 
             migrationBuilder.AddColumn<int>(
-                name: "Elo",
-                table: "AspNetUsers",
-                type: "int",
-                nullable: false,
-                defaultValue: 0);
-
-            migrationBuilder.AddColumn<int>(
-                name: "Wins",
+                name: "Draws",
                 table: "AspNetUsers",
                 type: "int",
                 nullable: false,
@@ -39,14 +45,12 @@ namespace Chessly.Web.Data.Migrations
                 nullable: false,
                 defaultValue: 0);
 
-
             migrationBuilder.AddColumn<int>(
-                name: "Draws",
+                name: "Elo",
                 table: "AspNetUsers",
                 type: "int",
                 nullable: false,
                 defaultValue: 0);
-
         }
 
         /// <inheritdoc />
@@ -57,11 +61,11 @@ namespace Chessly.Web.Data.Migrations
                 table: "AspNetUsers");
 
             migrationBuilder.DropColumn(
-                name: "Elo",
+                name: "Draws",
                 table: "AspNetUsers");
 
             migrationBuilder.DropColumn(
-                name: "Wins",
+                name: "Elo",
                 table: "AspNetUsers");
 
             migrationBuilder.DropColumn(
@@ -69,9 +73,12 @@ namespace Chessly.Web.Data.Migrations
                 table: "AspNetUsers");
 
             migrationBuilder.DropColumn(
-                name: "Draws",
+                name: "ProfileImageUrl",
                 table: "AspNetUsers");
 
+            migrationBuilder.DropColumn(
+                name: "Wins",
+                table: "AspNetUsers");
         }
     }
 }

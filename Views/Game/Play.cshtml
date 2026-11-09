@@ -1,0 +1,26 @@
+﻿@model Chessly.Web.ViewModels.PlayGameViewModel
+@{
+}
+
+<link rel="stylesheet" href="~/css/chessboard-1.0.0.min.css" asp-append-version="true" />
+
+<div class="conteiner">
+    <div class="row justify-content-center g-3">
+    <div class="col-auto" style="width: 720px">
+        <div id="myBoard" style="width: 700px; margin: 0 auto;"></div>
+    </div>
+
+        <div class="col-auto" style="width: 400px;">
+                <label>Status:</label>
+                <div id="status"></div>
+                <label>PGN:</label>
+                <div id="pgn"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+<script src="~/js/chessboard-1.0.0.min.js" asp-append-version="true"></script>
+<script src="~/js/ChessGame.js" asp-append-version="true"></script>
