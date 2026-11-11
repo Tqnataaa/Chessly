@@ -25,9 +25,9 @@ namespace Chessly.Web.Data
                 .OnDelete(DeleteBehavior.Restrict);
        
             builder.Entity<Bot>().HasData(
-                new Bot { Id = 1, Name = "EasyBot", Difficulty = "Easy", Elo = 600, Description = "An easy bot for beginners.", ImageUrl = "/images/bots/easybot.png" },
-                new Bot { Id = 2, Name = "MediumBot", Difficulty = "Medium", Elo = 1200, Description = "A medium difficulty bot.", ImageUrl = "/images/bots/mediumbot.png" },
-                new Bot { Id = 3, Name = "HardBot", Difficulty = "Hard", Elo = 1800, Description = "A challenging bot for experienced players.", ImageUrl = "/images/bots/hardbot.png" }
+                new Bot { Id = 1, Name = "PawnBot", Difficulty = "Easy", Elo = 600, Description = "An easy bot for beginners.", ImageUrl = "/img/chesspieces/wikipedia/wP.png" },
+                new Bot { Id = 2, Name = "KnightBot", Difficulty = "Medium", Elo = 1200, Description = "A medium difficulty bot.", ImageUrl = "/img/chesspieces/wikipedia/wN.png" },
+                new Bot { Id = 3, Name = "QueenBot", Difficulty = "Hard", Elo = 1800, Description = "A challenging bot for experienced players.", ImageUrl = "/img/chesspieces/wikipedia/wQ.png" }
             );
         }
     }

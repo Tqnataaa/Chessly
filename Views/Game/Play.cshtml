@@ -3,19 +3,82 @@
 }
 
 <link rel="stylesheet" href="~/css/chessboard-1.0.0.min.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/play.css" asp-append-version="true" />
 
-<div class="conteiner">
-    <div class="row justify-content-center g-3">
-    <div class="col-auto" style="width: 720px">
-        <div id="myBoard" style="width: 700px; margin: 0 auto;"></div>
+<div class="play-wrapper">
+    <div class="board-container">
+        <div id="myBoard"></div>
     </div>
 
-        <div class="col-auto" style="width: 400px;">
-                <label>Status:</label>
-                <div id="status"></div>
-                <label>PGN:</label>
-                <div id="pgn"></div>
+    <div class="sidebar-panel">
+        <h5 class="sidebar-title">Play vs Bot</h5>
+
+        <div class="selected-bot-card">
+            <img id="selectedBotImg"
+                 src="/img/chesspieces/wikipedia/wK.png"
+                 alt="Bot Avatar"
+                 class="selected-bot-avatar" />
+            <div class="selected-bot-info">
+                <h6 id="selectedBotName">Select a Bot</h6>
+                <div class="badge-row">
+                    <span id="selectedBotElo" class="badge-elo">Elo: -</span>
+                    <span id="selectedBotDifficulty" class="badge-diff">-</span>
+                </div>
             </div>
+        </div>
+
+        <div class="panel-content">
+            <div id="preGameSection">
+                <span class="bot-picker-label">Choose Opponent</span>
+                <div class="bot-grid" id="botThumbnails">
+                    @if (Model != null && Model.AvailableBots != null && Model.AvailableBots.Any())
+                    {
+                        @for (int i = 0; i < Model.AvailableBots.Count; i++)
+                        {
+                            var bot = Model.AvailableBots[i];
+                            var imgSrc = string.IsNullOrEmpty(bot.ImageUrl) ? "/img/chesspieces/wikipedia/wK.png" : bot.ImageUrl;
+                            <div class="bot-item @(i == 0 ? "active" : "")"
+                                 data-id="@bot.Id"
+                                 data-name="@bot.Name"
+                                 data-elo="@bot.Elo"
+                                 data-difficulty="@bot.Difficulty"
+                                 data-img="@imgSrc">
+                                <img src="@imgSrc" alt="@bot.Name" />
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+
+            <div id="activeGameSection" class="hidden-section">
+                <label class="bot-picker-label">Status</label>
+                <div id="status" class="status-box">White to move</div>
+
+                <label class="bot-picker-label">Moves (PGN)</label>
+                <div id="pgnContainer" class="pgn-box">
+                    <em>Moves will appear here...</em>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-footer">
+            <button type="button" id="startGameBtn" class="btn-orange">
+                Start Game
+            </button>
+            <button type="button" id="resignBtn" class="btn-outline-danger hidden-section">
+                Resign
+            </button>
+        </div>
+    </div>
+</div>
+
+<div id="gameOverModal" class="custom-modal-backdrop hidden-section">
+    <div class="custom-modal-box">
+        <h3 id="modalResultTitle">Game Over</h3>
+        <p id="modalResultSubtitle">White won by checkmate!</p>
+        <div class="modal-actions">
+            <button type="button" id="modalRematchBtn" class="btn-orange">Rematch</button>
+            <button type="button" id="modalHomeBtn" class="btn-modal-home" onclick="window.location.href='/'">Home Screen</button>
         </div>
     </div>
 </div>

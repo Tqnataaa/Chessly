@@ -68,9 +68,9 @@ namespace Chessly.Web.Data.Migrations
                 columns: new[] { "Id", "Description", "Difficulty", "Elo", "ImageUrl", "Name" },
                 values: new object[,]
                 {
-                    { 1, "An easy bot for beginners.", "Easy", 600, "/images/bots/easybot.png", "EasyBot" },
-                    { 2, "A medium difficulty bot.", "Medium", 1200, "/images/bots/mediumbot.png", "MediumBot" },
-                    { 3, "A challenging bot for experienced players.", "Hard", 1800, "/images/bots/hardbot.png", "HardBot" }
+                    { 1, "An easy bot for beginners.", "Easy", 600, "/img/chesspieces/wikipedia/wP.png", "PawnBot" },
+                    { 2, "A medium difficulty bot.", "Medium", 1200, "/img/chesspieces/wikipedia/wN.png", "KnightBot" },
+                    { 3, "A challenging bot for experienced players.", "Hard", 1800, "/img/chesspieces/wikipedia/wQ.png", "QueenBot" }
                 });
 
             migrationBuilder.CreateIndex(
