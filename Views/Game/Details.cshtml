@@ -1,0 +1,81 @@
+﻿@model Chessly.Web.ViewModels.GameDetailsEditViewModel
+@{
+    ViewData["Title"] = Model.Title;
+    var resultClass = Model.Result.ToLower() switch
+    {
+        "win" => "badge-win",
+        "loss" => "badge-loss",
+        _ => "badge-draw"
+    };
+}
+
+<link rel="stylesheet" href="~/css/history.css" asp-append-version="true" />
+
+<div class="details-wrapper">
+    <div class="details-header">
+        <div>
+            <h2>Match Details</h2>
+            <span class="history-subtitle">Played on @Model.PlayedOn.ToLocalTime().ToString("MM dd, yyyy 'at' HH:mm")</span>
+        </div>
+        <a asp-controller="Game" asp-action="History" class="btn-back">&larr; Back to History</a>
+    </div>
+
+    
+
+    <div class="details-grid">
+        <div class="history-card p-4">
+            <div class="opponent-banner">
+                <img src="@Model.BotImageUrl" alt="@Model.BotName" class="details-avatar" />
+                <div>
+                    <h5 class="mb-1 text-white">@Model.BotName</h5>
+                    <span class="elo-tag">@Model.BotElo Elo</span>
+                    <span class="result-badge @resultClass ms-2">@Model.Result</span>
+                </div>
+            </div>
+
+            <label class="section-label mt-4">Notation</label>
+            <div class="pgn-viewer">
+                @if (string.IsNullOrWhiteSpace(Model.PgnMoves) || Model.PgnMoves == "N/A")
+                {
+                    <span class="text-muted">No moves recorded.</span>
+                }
+                else
+                {
+                    var turns = System.Text.RegularExpressions.Regex.Split(Model.PgnMoves.Trim(), @"(?=\b\d+\.)")
+                        .Where(t => !string.IsNullOrWhiteSpace(t));
+
+                    foreach (var turn in turns)
+                    {
+                        <div class="pgn-row">@turn.Trim()</div>
+                    }
+                }
+            </div>
+        </div>
+
+        <div class="history-card p-4">
+            <h5 class="edit-heading">Edit Match Info</h5>
+            <form asp-controller="Game" asp-action="Details" method="post">
+                @Html.AntiForgeryToken()
+                <input type="hidden" asp-for="Id" />
+
+                <div class="mb-3">
+                    <label asp-for="Title" class="section-label">Game Title</label>
+                    <input asp-for="Title" class="chessly-input" placeholder="Enter match title..." />
+                    <span asp-validation-for="Title" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-4">
+                    <label asp-for="Notes" class="section-label">Notes</label>
+                    <textarea asp-for="Notes" rows="7" class="chessly-input" placeholder="Add notes"></textarea>
+                    <span asp-validation-for="Notes" class="text-danger small"></span>
+                </div>
+
+                <button type="submit" class="btn-orange w-100">Save Changes</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

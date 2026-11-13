@@ -1,0 +1,62 @@
+﻿@model List<Chessly.Web.ViewModels.GameHistoryViewModel>
+@{
+    ViewData["Title"] = "Match History";
+}
+
+<link rel="stylesheet" href="~/css/history.css" asp-append-version="true" />
+
+<div class="history-wrapper">
+    <div class="history-header">
+        <h2>Match History</h2>
+    </div>
+
+    <div class="history-card">
+        @if (Model == null || !Model.Any())
+        {
+            <div class="empty-history">
+                <h4>No matches recorded yet</h4>
+                <p>Challenge a bot on the board to log your first game.</p>
+                <a asp-controller="Game" asp-action="Play" class="btn-orange">Play Now</a>
+            </div>
+        }
+        else
+        {
+            <div class="history-scroll-container">
+                @foreach (var game in Model)
+                {
+                    var resultClass = game.Result.ToLower() switch
+                    {
+                        "win" => "badge-win",
+                        "loss" => "badge-loss",
+                        _ => "badge-draw"
+                    };
+
+                    <div class="history-row">
+                        <div class="history-bot-info">
+                            <img src="@game.BotImageUrl" alt="@game.BotName" class="history-avatar" />
+                            <div>
+                                <div class="history-title">@game.Title</div>
+                                <div class="history-meta">
+                                    vs <strong>@game.BotName</strong> (@game.BotElo Elo) &bull;
+                                    <span>@game.PlayedOn.ToLocalTime().ToString("MM-dd-yy HH:mm")</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="history-actions">
+                            <span class="result-badge @resultClass">@game.Result</span>
+
+                            <a asp-controller="Game" asp-action="Details" asp-route-id="@game.Id" class="btn-view">
+                                View
+                            </a>
+
+                            <form asp-controller="Game" asp-action="Delete" asp-route-id="@game.Id" method="post">
+                                <button type="submit" class="btn-delete">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>

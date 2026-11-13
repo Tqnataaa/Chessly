@@ -19,6 +19,7 @@ namespace Chessly.Web
 
             builder.Services.AddDefaultIdentity<ApplicationUser>(options => {
                 options.SignIn.RequireConfirmedAccount = false;
+                options.User.RequireUniqueEmail = true;
 
                 /*password requirements*/
                 options.Password.RequireDigit = false;
