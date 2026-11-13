@@ -1,10 +1,15 @@
 ﻿@using Microsoft.AspNetCore.Identity
+@using Chessly.Web.Models
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
 <ul class="navbar-nav align-items-center">
 @if (SignInManager.IsSignedIn(User))
 {
+    var currentUser = await UserManager.GetUserAsync(User);
+    <li class="nav-item">    
+        <span class="nav-elem-elo"> @currentUser.UserName's Elo: @currentUser.Elo</span>
+    </li>
     <li class="nav-item">
         <a class="nav-link chessly-nav-link d-flex align-items-center py-1" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage Profile">
             <img src="~/img/Pictures/defaultPfp.png" 

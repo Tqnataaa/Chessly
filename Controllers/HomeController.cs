@@ -42,7 +42,7 @@ namespace Chessly.Web.Controllers
                 .AsNoTracking()
                 .OrderByDescending(u => u.Elo)
                 .ThenByDescending(u => u.Wins)
-                .Take(100)
+                .Take(50)
                 .Select(u => new
                 {
                     u.UserName,

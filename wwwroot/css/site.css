@@ -128,3 +128,7 @@ main {
     .footer-link:hover {
         color: #f37324;
     }
+
+.nav-elem-elo {
+    margin-right: 10px;
+}
