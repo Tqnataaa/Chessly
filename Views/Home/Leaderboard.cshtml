@@ -1,0 +1,71 @@
+﻿@model List<Chessly.Web.ViewModels.LeaderboardViewModel>
+@{
+    
+}
+
+<link rel="stylesheet" href="~/css/leaderboard.css" asp-append-version="true" />
+
+<div class="leaderboard-wrapper">
+    <div class="leaderboard-header">
+        <h2>Global Rankings</h2>
+        <span class="leaderboard-subtitle">Top Chessly players sorted by Elo rating</span>
+    </div>
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="empty-leaderboard-card">
+            <h4>No players ranked yet</h4>
+            <p class="text-muted">Play a match against any bot to claim the first spot on the leaderboard!</p>
+            <a asp-controller="Game" asp-action="Play" class="btn-orange">Play Now</a>
+        </div>
+    }
+    else
+    {
+        <div class="leaderboard-card">
+            <table class="leaderboard-table">
+                <thead>
+                    <tr>
+                        <th class="text-center" style="width: 70px;">Rank</th>
+                        <th>Player</th>
+                        <th class="text-center" style="width: 120px;">Rating</th>
+                        <th class="text-center" style="width: 90px;">Won</th>
+                        <th class="text-center" style="width: 90px;">Lost</th>
+                        <th class="text-center" style="width: 90px;">Drawn</th>
+                        <th class="text-center" style="width: 110px;">Win Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var player in Model)
+                    {
+                        var rankClass = player.Rank switch
+                        {
+                            1 => "rank-gold",
+                            2 => "rank-silver",
+                            3 => "rank-bronze",
+                            _ => ""
+                        };
+
+                        <tr class="@rankClass">
+                            <td class="text-center rank-col">
+                                @if (player.Rank == 1) { <span>🥇 1</span> }
+                                else if (player.Rank == 2) { <span>🥈 2</span> }
+                                else if (player.Rank == 3) { <span>🥉 3</span> }
+                                else { <span>#@player.Rank</span> }
+                            </td>
+                            <td class="player-col">
+                                <strong>@player.UserName</strong>
+                            </td>
+                            <td class="text-center">
+                                <span class="badge-elo-pill">@player.Elo Elo</span>
+                            </td>
+                            <td class="text-center stat-win">@player.Wins</td>
+                            <td class="text-center stat-loss">@player.Losses</td>
+                            <td class="text-center stat-draw">@player.Draws</td>
+                            <td class="text-center font-monospace">@player.WinRate%</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

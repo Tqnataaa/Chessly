@@ -20,3 +20,111 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/* Base Body Styling */
+html, body {
+    height: 100%;
+}
+
+    body.chessly-body {
+        background-color: #1e2124;
+        color: #f8f9fa;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+header {
+    flex-shrink: 0;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+/* Custom Navbar */
+.custom-navbar {
+    background-color: #282b30;
+    border-bottom: 1px solid #383c42;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+    padding: 10px 0;
+}
+
+/* Brand Logo */
+.chessly-brand {
+    font-size: 1.4rem;
+    font-weight: 800;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+}
+
+.brand-chess {
+    color: #ffffff;
+}
+
+.brand-ly {
+    color: #f37324;
+}
+
+/* Navigation Links */
+.chessly-nav-link {
+    color: #a3a6aa !important;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 8px 14px !important;
+    border-radius: 6px;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+    .chessly-nav-link:hover,
+    .chessly-nav-link:focus {
+        color: #f37324 !important;
+        background-color: #1e2124;
+    }
+
+/* Toggler for Mobile View */
+.custom-toggler {
+    border: 1px solid #383c42;
+    background-color: #1e2124;
+}
+
+    .custom-toggler .navbar-toggler-icon {
+        filter: invert(80%);
+    }
+
+/* Login Partial Styling (Right side of navbar) */
+.custom-navbar .navbar-nav .btn-link {
+    color: #a3a6aa;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 6px;
+    transition: color 0.2s;
+}
+
+    .custom-navbar .navbar-nav .btn-link:hover {
+        color: #f37324;
+        background-color: #1e2124;
+    }
+
+/* Custom Footer */
+.custom-footer {
+    flex-shrink: 0;
+    background-color: #282b30;
+    border-top: 3px solid #383c42;
+    color: #a3a6aa;
+    font-size: 0.88rem;
+    padding: 12px 0;
+    margin-top: auto;
+}
+
+.footer-link {
+    color: #a3a6aa;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+    .footer-link:hover {
+        color: #f37324;
+    }
