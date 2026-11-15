@@ -1,6 +1,48 @@
 ﻿@{
     ViewData["Title"] = "Privacy Policy";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<link rel="stylesheet" href="~/css/privacy.css" asp-append-version="true" />
+
+<div class="privacy-wrapper">
+    <div class="privacy-header">
+        <h2>Privacy Policy</h2>
+    </div>
+
+    <div class="privacy-card">
+        <section class="privacy-section">
+            <h5>1. Information We Collect</h5>
+            <p>
+                When you register and play on <strong>Chessly</strong>, we collect only the information required to run your account and track your progress:
+            </p>
+            <ul>
+                <li><strong>Account Credentials:</strong> Your username, email address, and securely hashed password.</li>
+                <li><strong>Match &amp; Rating Data:</strong> Your Elo rating, win/loss/draw statistics, PGN move notations, match titles, and optional game notes.</li>
+            </ul>
+        </section>
+
+        <section class="privacy-section">
+            <h5>2. How Your Information Is Used &amp; Displayed</h5>
+            <ul>
+                <li><strong>Public Leaderboard:</strong> Your username, Elo rating, and match record (wins, losses, draws, win rate) are visible to other users on the Global Rankings page.</li>
+                <li><strong>Private Data:</strong> Your email address, password hash, and personal match notes are private and never shared publicly or sold to third parties.</li>
+            </ul>
+        </section>
+
+        <section class="privacy-section">
+            <h5>3. Cookies &amp; Authentication</h5>
+            <p>
+                Chessly uses essential session and authentication cookies provided by ASP.NET Core Identity solely to keep you signed in and protect form submissions against cross-site request forgery (CSRF). We do not use advertising or third-party tracking cookies.
+            </p>
+        </section>
+
+        <section class="privacy-section">
+            <h5>4. Managing Your Data</h5>
+            <p class="mb-0">
+                You have full control over your gameplay records. You can rename, annotate, or permanently delete any match from your
+                <a asp-controller="Game" asp-action="History" class="privacy-link">Match History</a>, or update your credentials in your
+                <a asp-area="Identity" asp-page="/Account/Manage/Index" class="privacy-link">Account Settings</a>.
+            </p>
+        </section>
+    </div>
+</div>
