@@ -1,0 +1,139 @@
+﻿/* Page Container & Title */
+main:has(ul.nav-pills) {
+    max-width: 960px;
+    margin: 30px auto;
+    padding: 0 16px;
+}
+
+    main:has(ul.nav-pills) h1 {
+        color: #f37324;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 24px;
+        font-size: 1.75rem;
+    }
+
+    /* Left Sidebar Navigation (_ManageNav) */
+    main:has(ul.nav-pills) .col-md-3 .nav-pills {
+        background-color: #282b30;
+        border: 1px solid #383c42;
+        border-radius: 8px;
+        padding: 10px;
+        gap: 4px;
+    }
+
+        main:has(ul.nav-pills) .col-md-3 .nav-pills .nav-link {
+            color: #d1d5db;
+            font-weight: 600;
+            border-radius: 6px;
+            padding: 10px 14px;
+            transition: all 0.15s ease;
+        }
+
+            main:has(ul.nav-pills) .col-md-3 .nav-pills .nav-link:hover {
+                background-color: #1e2124;
+                color: #ffffff;
+            }
+
+            main:has(ul.nav-pills) .col-md-3 .nav-pills .nav-link.active {
+                background-color: #f37324;
+                color: #ffffff;
+            }
+
+    /* Right Content Panel (@RenderBody) */
+    main:has(ul.nav-pills) .col-md-9 {
+        background-color: #282b30;
+        border: 1px solid #383c42;
+        border-radius: 8px;
+        padding: 28px 32px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+        color: #d1d5db;
+    }
+
+        main:has(ul.nav-pills) .col-md-9 h3 {
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1.3rem;
+            padding-bottom: 14px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #383c42;
+        }
+
+        /* Keep inner Identity col-md-6 forms clean inside the card */
+        main:has(ul.nav-pills) .col-md-9 .col-md-6 {
+            width: 100%;
+            max-width: 480px;
+        }
+
+        /* Floating & Standard Inputs across Manage sub-pages */
+        main:has(ul.nav-pills) .col-md-9 .form-control {
+            background-color: #1e2124;
+            border: 1px solid #383c42;
+            color: #f8f9fa;
+            border-radius: 6px;
+        }
+
+            main:has(ul.nav-pills) .col-md-9 .form-control:focus {
+                background-color: #1e2124;
+                border-color: #f37324;
+                color: #f8f9fa;
+                box-shadow: 0 0 0 0.2rem rgba(243, 115, 36, 0.2);
+            }
+
+            main:has(ul.nav-pills) .col-md-9 .form-control:disabled {
+                background-color: #181a1d;
+                color: #8e9297;
+                border-color: #2c3035;
+            }
+
+        main:has(ul.nav-pills) .col-md-9 .form-floating > label {
+            color: #a3a6aa;
+        }
+
+        main:has(ul.nav-pills) .col-md-9 .form-floating > .form-control:focus ~ label,
+        main:has(ul.nav-pills) .col-md-9 .form-floating > .form-control:not(:placeholder-shown) ~ label {
+            color: #f37324;
+        }
+
+            main:has(ul.nav-pills) .col-md-9 .form-floating > .form-control:focus ~ label::after,
+            main:has(ul.nav-pills) .col-md-9 .form-floating > .form-control:not(:placeholder-shown) ~ label::after {
+                background-color: transparent;
+            }
+
+        /* Verified Email Checkmark Badge */
+        main:has(ul.nav-pills) .col-md-9 .input-group-text {
+            background-color: #1e2124;
+            border: 1px solid #383c42;
+            color: #20c997;
+        }
+
+        /* Primary Buttons (Save, Update Password, Change Email) */
+        main:has(ul.nav-pills) .col-md-9 .btn-primary {
+            background-color: #f37324;
+            border: none;
+            color: #ffffff;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 10px 20px;
+            border-radius: 6px;
+            transition: background-color 0.2s;
+        }
+
+            main:has(ul.nav-pills) .col-md-9 .btn-primary:hover {
+                background-color: #d95f15;
+            }
+
+        /* Status Alert Banner (e.g., "Your profile has been updated") */
+        main:has(ul.nav-pills) .col-md-9 .alert-success {
+            background-color: rgba(32, 201, 151, 0.15);
+            border: 1px solid #20c997;
+            color: #20c997;
+        }
+
+@media (max-width: 767px) {
+    main:has(ul.nav-pills) .col-md-3 {
+        margin-bottom: 16px;
+    }
+}
