@@ -1,0 +1,78 @@
+﻿/* Centered Register Card Layout */
+main:has(form#registerForm) h1 {
+    color: #f37324;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+main:has(form#registerForm) .row {
+    justify-content: center;
+}
+
+main:has(form#registerForm) .col-md-4 {
+    width: 100%;
+    max-width: 440px;
+    background-color: #282b30;
+    border: 1px solid #383c42;
+    border-radius: 8px;
+    padding: 28px 32px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* Floating Inputs */
+form#registerForm .form-floating > .form-control {
+    background-color: #1e2124;
+    border: 1px solid #383c42;
+    color: #f8f9fa;
+    border-radius: 6px;
+}
+
+    form#registerForm .form-floating > .form-control:focus {
+        background-color: #1e2124;
+        border-color: #f37324;
+        color: #f8f9fa;
+        box-shadow: 0 0 0 0.2rem rgba(243, 115, 36, 0.2);
+    }
+
+form#registerForm .form-floating > label {
+    color: #a3a6aa;
+}
+
+form#registerForm .form-floating > .form-control:focus ~ label,
+form#registerForm .form-floating > .form-control:not(:placeholder-shown) ~ label {
+    color: #f37324;
+}
+
+    form#registerForm .form-floating > .form-control:focus ~ label::after,
+    form#registerForm .form-floating > .form-control:not(:placeholder-shown) ~ label::after {
+        background-color: transparent;
+    }
+
+/* Validation Messages */
+form#registerForm .text-danger {
+    font-size: 0.85rem;
+    margin-top: 4px;
+    display: block;
+}
+
+/* Submit Button */
+#registerSubmit {
+    background-color: #f37324;
+    border: none;
+    color: #ffffff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 12px;
+    border-radius: 6px;
+    margin-top: 6px;
+    transition: background-color 0.2s;
+}
+
+    #registerSubmit:hover {
+        background-color: #d95f15;
+    }
