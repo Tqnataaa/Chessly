@@ -1,8 +1,57 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<link rel="stylesheet" href="~/css/Index.css" asp-append-version="true" />
+
+<div class="home-wrapper">
+    <div class="home-scroll-container">
+    <section class="hero-card">
+        <div class="hero-badge">PLAY &bull; ANALYZE &bull; CLIMB</div>
+        <h1 class="hero-title">Master the Board on <span>Chessly</span></h1>
+        <p class="hero-subtitle">
+            Challenge tactical AI bots across multiple skill tiers, track your live Elo rating,
+            review full PGN move histories, and climb into the Global Top 50.
+        </p>
+
+        <div class="hero-actions">
+            <a asp-controller="Game" asp-action="Play" class="btn-orange-lg">Play vs Bots</a>
+            <a asp-controller="Home" asp-action="Leaderboard" class="btn-dark-lg">View Leaderboard</a>
+            @if (User.Identity != null && User.Identity.IsAuthenticated)
+            {
+                <a asp-controller="Game" asp-action="History" class="btn-dark-lg">Match History</a>
+            }
+        </div>
+    </section>
+
+    <section class="home-section">
+        <div class="section-heading">
+            <h3>Choose Your Opponent</h3>
+            <span>Test your openings and endgames against three distinct bot tiers</span>
+        </div>
+
+        <div class="bots-grid">
+            <div class="bot-preview-card">
+                <img src="/img/chesspieces/wikipedia/wP.png" alt="PawnBot" class="bot-preview-img" />
+                <span class="difficulty-tag easy">Easy &bull; 600 Elo</span>
+                <h5>PawnBot</h5>
+                <a asp-controller="Game" asp-action="Play" class="bot-play-link">Challenge &rarr;</a>
+            </div>
+
+            <div class="bot-preview-card">
+                <img src="/img/chesspieces/wikipedia/wN.png" alt="KnightBot" class="bot-preview-img" />
+                <span class="difficulty-tag medium">Medium &bull; 1200 Elo</span>
+                <h5>KnightBot</h5>
+                <a asp-controller="Game" asp-action="Play" class="bot-play-link">Challenge &rarr;</a>
+            </div>
+
+            <div class="bot-preview-card">
+                <img src="/img/chesspieces/wikipedia/wQ.png" alt="QueenBot" class="bot-preview-img" />
+                <span class="difficulty-tag hard">Hard &bull; 1800 Elo</span>
+                <h5>QueenBot</h5>
+                <a asp-controller="Game" asp-action="Play" class="bot-play-link">Challenge &rarr;</a>
+            </div>
+        </div>
+    </section>
+    </div>
 </div>
