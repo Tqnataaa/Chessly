@@ -1,0 +1,129 @@
+﻿/* Centered Login Card Layout */
+main:has(form#account) h1 {
+    color: #f37324;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+main:has(form#account) .row {
+    justify-content: center;
+}
+
+main:has(form#account) .col-md-4 {
+    width: 100%;
+    max-width: 440px;
+    background-color: #282b30;
+    border: 1px solid #383c42;
+    border-radius: 8px;
+    padding: 28px 32px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* Form Headings & Divider */
+form#account h2 {
+    color: #a3a6aa;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 14px;
+}
+
+form#account hr {
+    border-color: #383c42;
+    opacity: 1;
+    margin-bottom: 22px;
+}
+
+/* Floating Inputs */
+form#account .form-floating > .form-control {
+    background-color: #1e2124;
+    border: 1px solid #383c42;
+    color: #f8f9fa;
+    border-radius: 6px;
+}
+
+    form#account .form-floating > .form-control:focus {
+        background-color: #1e2124;
+        border-color: #f37324;
+        color: #f8f9fa;
+        box-shadow: 0 0 0 0.2rem rgba(243, 115, 36, 0.2);
+    }
+
+form#account .form-floating > label {
+    color: #a3a6aa;
+}
+
+form#account .form-floating > .form-control:focus ~ label,
+form#account .form-floating > .form-control:not(:placeholder-shown) ~ label {
+    color: #f37324;
+}
+
+    form#account .form-floating > .form-control:focus ~ label::after,
+    form#account .form-floating > .form-control:not(:placeholder-shown) ~ label::after {
+        background-color: transparent;
+    }
+
+/* Remember Me Checkbox */
+form#account .checkbox label {
+    color: #d1d5db;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+form#account .form-check-input {
+    background-color: #1e2124;
+    border-color: #383c42;
+}
+
+    form#account .form-check-input:checked {
+        background-color: #f37324;
+        border-color: #f37324;
+    }
+
+/* Submit Button */
+#login-submit {
+    background-color: #f37324;
+    border: none;
+    color: #ffffff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    transition: background-color 0.2s;
+}
+
+    #login-submit:hover {
+        background-color: #d95f15;
+    }
+
+/* Secondary Links & Register Prompt */
+form#account h5 {
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #383c42;
+}
+
+form#account p {
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+form#account a {
+    color: #f37324;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+    form#account a:hover {
+        color: #ff8c42;
+        text-decoration: underline;
+    }
