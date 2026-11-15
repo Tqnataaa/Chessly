@@ -71,7 +71,7 @@
     }
 
 .privacy-scroll-container {
-    max-height: 640px;
+    max-height: 620px;
     overflow-y: auto;
     background-color: #1e2124;
     border: 1px solid #383c42;
