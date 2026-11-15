@@ -77,7 +77,7 @@
         <h3 id="modalResultTitle">Game Over</h3>
         <p id="modalResultSubtitle">White won by checkmate!</p>
         <div class="modal-actions">
-            <button type="button" id="modalRematchBtn" class="btn-orange">Rematch</button>
+            <a asp-controller="Game" asp-action="Play" class="btn-orange">Rematch</a>
             <button type="button" id="modalHomeBtn" class="btn-modal-home" onclick="window.location.href='/'">Home Screen</button>
         </div>
     </div>

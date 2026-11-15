@@ -69,3 +69,29 @@
         text-decoration: underline;
         color: #ff8c42;
     }
+
+.privacy-scroll-container {
+    max-height: 640px;
+    overflow-y: auto;
+    background-color: #1e2124;
+    border: 1px solid #383c42;
+    border-radius: 6px;
+    padding: 12px;
+}
+
+    .privacy-scroll-container::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .privacy-scroll-container::-webkit-scrollbar-track {
+        background: #1e2124;
+    }
+
+    .privacy-scroll-container::-webkit-scrollbar-thumb {
+        background: #383c42;
+        border-radius: 4px;
+    }
+
+        .privacy-scroll-container::-webkit-scrollbar-thumb:hover {
+            background: #f37324;
+        }

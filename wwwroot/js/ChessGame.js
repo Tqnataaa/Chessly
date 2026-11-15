@@ -254,15 +254,4 @@ $(document).ready(function () {
         showGameOverModal('Resigned', 'You conceded the match.', 'Loss');
         $status.text('Game Over: Resigned');
     });
-
-    // Rematch inside Modal
-    $('#modalRematchBtn').on('click', function () {
-        $('#gameOverModal').addClass('hidden-section');
-        isGameActive = true;
-        isGameLocked = false;
-        resetBoardAndGame();
-
-        $('#startGameBtn').addClass('hidden-section');
-        $('#resignBtn').removeClass('hidden-section');
-    });
 });
